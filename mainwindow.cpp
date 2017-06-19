@@ -26,21 +26,36 @@ MainWindow::MainWindow(QWidget *parent) :
 	//qDebug() << theString << "MainWindow";
 	theString = myGeometry->makeMatrix3dListElement(5, 2.5, 2, -1, 1.5, 2, 2, 3, 2);
 	//qDebug() << theString << "MainWindow";
+	theString = myGeometry->makeVector3dListElement(5, 2, 2);
+	//qDebug() << theString << "MainWindow";
+	theString = myGeometry->makeVector3dListElement(2, 4, 4);
+	//qDebug() << theString << "MainWindow";
+	theString = myGeometry->makeVector3dListElement(3, 2.5, 2);
+	//qDebug() << theString << "MainWindow";
 
-	for(std::vector<Matrix3d>::const_iterator iter = myGeometry->matrix3dList.begin(); iter != myGeometry->matrix3dList.end(); ++iter) {
-		QString someString = myGeometry->matrix3dToQString(*iter);
+	for(std::vector<Matrix3d>::const_iterator matrix3dIter = myGeometry->matrix3dList.begin(); matrix3dIter != myGeometry->matrix3dList.end(); ++matrix3dIter) {
+		QString someString = myGeometry->matrixBaseToQString(*matrix3dIter);
+		qDebug() << someString << "MainWindow";
+	}
+
+	for(std::vector<Vector3d>::const_iterator vector3dIter = myGeometry->vector3dList.begin(); vector3dIter != myGeometry->vector3dList.end(); ++vector3dIter) {
+		QString someString = myGeometry->matrixBaseToQString(*vector3dIter);
 		qDebug() << someString << "MainWindow";
 	}
 
 	//std::vector<Matrix3d *>::const_iterator iter = myGeometry->matrix3dList.begin();
-	//Eigen::Matrix<double,3,3>* iterMatrix = *iter; //this works!
-	//QString someString = myGeometry->matrix3dToQString(*iter);
+	//Eigen::Matrix<double,3,3>* iterMatrix = *iter;
 	//QString someString = myGeometry->matrix3dToQString(*iter);
 	//qDebug() << someString << "MainWindow";
-
 	//std::vector<Matrix3d*>::const_iterator iter = myGeometry->matrix3dList.begin();
 	//QString someString = myGeometry->matrix3dToQString(myGeometry->matrix3dList[0]);
 	//QString someString = myGeometry->matrix3dToQString(*iter);
+
+	Vector3d theResult = myGeometry->vector3dProjection(myGeometry->vector3dList.at(0), myGeometry->vector3dList.at(1));
+	theString = myGeometry->matrixBaseToQString(theResult);
+	qDebug() << theString << "MainWindow";
+
+
 }
 
 MainWindow::~MainWindow()
