@@ -79,3 +79,27 @@ QString Geometry::makeMatrix3dListElement(double zeroZero, double oneZero, doubl
 	*/
 	return theString;
 }
+
+QString Geometry::makeVector3dListElement(double zeroZero, double oneZero, double twoZero) {
+	Vector3d theVector;
+	theVector[0] = zeroZero;
+	theVector[1] = oneZero;
+	theVector[2] = twoZero;
+	vector3dList.push_back(theVector);
+	QString theString = matrixBaseToQString(theVector);
+	return theString;
+}
+
+double Geometry::vector3dAngleCosine(Vector3d theFirst, Vector3d theSecond) {
+
+}
+
+Vector3d Geometry::vector3dProjection(Vector3d theLine, Vector3d theProj) {
+	double tempScalar3d;
+	Vector3d theResult;
+	tempScalar3d = theProj.dot(theLine)/theLine.dot(theLine);
+	theResult = theLine * tempScalar3d;
+	return theResult;
+}
+
+
