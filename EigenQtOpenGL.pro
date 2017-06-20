@@ -25,9 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    geometry.cpp
+    geometry.cpp \
+    glwidget.cpp
 
 HEADERS  += mainwindow.h \
-    geometry.h
+    geometry.h \
+    glwidget.h
 
 FORMS    += mainwindow.ui

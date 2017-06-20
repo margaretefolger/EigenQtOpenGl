@@ -55,6 +55,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	theString = myGeometry->matrixBaseToQString(theResult);
 	qDebug() << theString << "MainWindow";
 
+	double theCosine = myGeometry->vector3dAngleCosine(myGeometry->vector3dList.at(0), myGeometry->vector3dList.at(1));
+	qDebug() << theCosine << "MainWindow";
 
 }
 

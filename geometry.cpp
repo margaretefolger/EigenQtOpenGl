@@ -91,7 +91,8 @@ QString Geometry::makeVector3dListElement(double zeroZero, double oneZero, doubl
 }
 
 double Geometry::vector3dAngleCosine(Vector3d theFirst, Vector3d theSecond) {
-
+	double cosTheta = (theFirst.dot(theSecond))/(sqrt(theFirst.dot(theFirst)) * sqrt(theSecond.dot(theSecond)));
+	return cosTheta;
 }
 
 Vector3d Geometry::vector3dProjection(Vector3d theLine, Vector3d theProj) {
