@@ -82,6 +82,15 @@ void MainWindow::on_pushButtonShowMessage_released()
 //		ui->messageLabel->setText(theString);
 		ui->messageLabel->setText("Quit was not \nconfirmed.");
 		qDebug() << "Quit was not confirmed";
+		ui->GLWidgetOne->addPoint(0.25, 0.25, 0.25);
+
+		for(std::vector<Vector3d>::const_iterator vector3dIter = myGeometry->vector3dList.begin(); vector3dIter != myGeometry->vector3dList.end(); ++vector3dIter) {
+			ui->GLWidgetOne->addPoint((*vector3dIter).coeff(0), (*vector3dIter).coeff(1), (*vector3dIter).coeff(2));
+		}
+
+
+
+
 	}
 
 }
